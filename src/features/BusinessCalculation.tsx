@@ -8,7 +8,7 @@ import { ja } from "date-fns/locale"
 import { WorkingDateCalculation } from "@/features/WorkingDateCalculation"
 
 export const BusinessCalculation = () => {
-	const [date, setDate] = useState<Date | undefined>(new Date())
+	const [date, setDate] = useState<Date | undefined>(new Date());
 	const [daysToAdd, setDaysToAdd] = useState<number | undefined>(undefined);
 
 	const handleSetDate = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,17 +28,18 @@ export const BusinessCalculation = () => {
 		<div className="flex flex-col items-center min-h-screen bg-gray-50 p-4">
 			<div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
 				<h1 className="text-3xl font-semibold text-center mb-8 text-gray-800">
-					営業時間計算ツール
+					営業日計算ツール
 				</h1>
 				<div className="flex flex-col space-y-6 items-center">
 					<div className="flex flex-col items-center">
-						<Label htmlFor="date" className="text-gray-700 mb-1 block text-center">
+						<Label htmlFor="date" className="text-gray-700 mb-1 block text-left">
 							営業日
 						</Label>
 						<Input
 							id="date"
 							type="number"
-							placeholder="例: 3"
+							min="0"
+							placeholder="例：3"
 							className="w-2/4 text-center"
 							onChange={handleSetDate}
 						/>

@@ -58,6 +58,13 @@ export const BusinessCalculation = () => {
 				<h1 className="text-3xl font-semibold text-center mb-8 text-gray-700">
 					営業日計算ツール
 				</h1>
+				{workingDate !== undefined && baseDate !== undefined && (
+					<>
+						<p className="text-center text-gray-700 mb-8">
+							{baseDate?.toLocaleDateString()}から<br/>{workingDate} 営業日後の<span className='font-bold'>納期</span>は<br/><span className='font-bold text-2xl'>{deliveryDate?.toLocaleDateString()}</span> です。
+						</p>
+					</>
+				)}
 				<div className="flex flex-col space-y-6 items-center">
 					<div className="w-full h-full flex flex-row gap-4">
 						{/* 休業日 */}
@@ -119,13 +126,6 @@ export const BusinessCalculation = () => {
 							<span className="ml-2 text-gray-700 text-sm">休業日</span>
 						</div>
 					</div>
-					{workingDate !== undefined && baseDate !== undefined && (
-						<>
-							<p className="text-center text-gray-700 mt-4">
-								{baseDate?.toLocaleDateString()}から<br/>{workingDate} 営業日後の<span className='font-bold'>納期</span>は<br/><span className='font-bold text-2xl'>{deliveryDate?.toLocaleDateString()}</span> です。
-							</p>
-						</>
-					)}
 				</div>
 			</div>
 		</div>
